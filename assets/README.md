@@ -48,3 +48,24 @@ Replace these files to update the Baby Bird detail page:
 - `baby-bird/still-12.jpg`
 - `baby-bird/still-13.jpg`
 - `baby-bird/trailer-thumb.jpg`
+
+## Once Upon the Time in Boston project page
+
+Replace these files to update the Once Upon the Time in Boston detail page:
+
+- `outb/hero.jpg`
+- `outb/still-01.jpg`
+- `outb/still-02.jpg`
+- `outb/still-03.jpg`
+- `outb/still-04.jpg`
+- `outb/still-05.jpg`
+- `outb/still-06.jpg`
+- `outb/still-07.jpg`
+- `outb/still-08.jpg`
+- `outb/still-09.jpg`
+- `outb/still-10.jpg`
+- `outb/still-11.jpg`
+- `outb/still-12.jpg`
+- `outb/still-13.jpg`
+- `outb/still-14.jpg`
+- `outb/trailer-thumb.jpg`
