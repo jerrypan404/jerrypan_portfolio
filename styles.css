@@ -1180,6 +1180,75 @@ svg {
   color: var(--ink-muted);
 }
 
+.credits-main {
+  padding-block: clamp(34px, 6vw, 66px);
+}
+
+.credits-panel {
+  overflow: hidden;
+}
+
+.credits-heading h1 {
+  font-size: clamp(2.3rem, 5vw, 4.2rem);
+}
+
+.credit-sections {
+  display: grid;
+  gap: clamp(24px, 4vw, 38px);
+  margin-top: clamp(24px, 4vw, 38px);
+}
+
+.credit-category {
+  padding: clamp(18px, 3vw, 28px);
+  background: rgba(246, 232, 201, 0.46);
+  border: 1px solid rgba(75, 53, 26, 0.18);
+  box-shadow: var(--shadow-small);
+}
+
+.credit-category h2 {
+  margin: 0 0 16px;
+  color: var(--red-dark);
+  font-family: var(--font-type);
+  font-size: clamp(1.35rem, 3vw, 2rem);
+  letter-spacing: 1px;
+  text-transform: uppercase;
+}
+
+.credit-list {
+  display: grid;
+  gap: 0;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.credit-list li {
+  display: grid;
+  grid-template-columns: minmax(220px, 0.9fr) minmax(260px, 1.1fr);
+  gap: clamp(12px, 2vw, 22px);
+  padding: 13px 0;
+  border-top: 1px dashed rgba(40, 27, 12, 0.24);
+}
+
+.credit-list li:first-child {
+  border-top: 0;
+  padding-top: 0;
+}
+
+.credit-list span,
+.credit-list em {
+  font-family: var(--font-type);
+  font-size: 0.86rem;
+  font-style: normal;
+  font-weight: 800;
+  line-height: 1.45;
+}
+
+.credit-list em {
+  color: var(--ink-muted);
+  font-weight: 700;
+}
+
 /* Baby Bird project page */
 .project-page {
   padding-block: clamp(34px, 6vw, 66px);
@@ -1725,6 +1794,11 @@ svg {
   }
 
   .credits-list div {
+    grid-template-columns: 1fr;
+    gap: 4px;
+  }
+
+  .credit-list li {
     grid-template-columns: 1fr;
     gap: 4px;
   }
