@@ -1249,6 +1249,37 @@ svg {
   font-weight: 700;
 }
 
+.credit-with-episodes {
+  grid-template-columns: minmax(220px, 0.9fr) minmax(260px, 1.1fr);
+}
+
+.credit-episodes {
+  grid-column: 2;
+  display: grid;
+  gap: 7px;
+  margin: 6px 0 0;
+  padding: 0;
+  list-style: none;
+}
+
+.credit-episodes li {
+  position: relative;
+  padding-left: 16px;
+  color: var(--ink-muted);
+  font-family: var(--font-type);
+  font-size: 0.8rem;
+  font-weight: 700;
+  line-height: 1.35;
+}
+
+.credit-episodes li::before {
+  content: "-";
+  position: absolute;
+  left: 0;
+  color: var(--red-dark);
+  font-weight: 800;
+}
+
 /* Baby Bird project page */
 .project-page {
   padding-block: clamp(34px, 6vw, 66px);
@@ -1801,6 +1832,10 @@ svg {
   .credit-list li {
     grid-template-columns: 1fr;
     gap: 4px;
+  }
+
+  .credit-episodes {
+    grid-column: 1;
   }
 
   .project-bottom-nav {
