@@ -56,3 +56,66 @@ document.querySelectorAll(".hero-collage .photo").forEach((photo) => {
     photo.style.removeProperty("--tilt-y");
   });
 });
+
+const galleryFrames = Array.from(document.querySelectorAll(".gallery-frame"));
+
+if (galleryFrames.length) {
+  const lightbox = document.createElement("div");
+  lightbox.className = "gallery-lightbox";
+  lightbox.hidden = true;
+  lightbox.setAttribute("role", "dialog");
+  lightbox.setAttribute("aria-modal", "true");
+  lightbox.innerHTML = `
+    <button class="gallery-lightbox-close" type="button" aria-label="Close expanded image">X</button>
+    <img class="gallery-lightbox-img" alt="" />
+  `;
+  document.body.append(lightbox);
+
+  const lightboxImage = lightbox.querySelector(".gallery-lightbox-img");
+  const closeButton = lightbox.querySelector(".gallery-lightbox-close");
+  let lastActiveElement = null;
+
+  const closeLightbox = () => {
+    lightbox.hidden = true;
+    document.body.classList.remove("lightbox-open");
+    lightboxImage.removeAttribute("src");
+    lastActiveElement?.focus();
+  };
+
+  const openLightbox = (image) => {
+    lastActiveElement = document.activeElement;
+    lightboxImage.src = image.currentSrc || image.src;
+    lightboxImage.alt = image.alt;
+    lightbox.hidden = false;
+    document.body.classList.add("lightbox-open");
+    closeButton.focus();
+  };
+
+  galleryFrames.forEach((frame) => {
+    const image = frame.querySelector("img");
+    if (!image) return;
+
+    frame.tabIndex = 0;
+    frame.setAttribute("role", "button");
+    frame.setAttribute("aria-label", `Open image: ${image.alt}`);
+
+    frame.addEventListener("click", () => openLightbox(image));
+    frame.addEventListener("keydown", (event) => {
+      if (event.key !== "Enter" && event.key !== " ") return;
+      event.preventDefault();
+      openLightbox(image);
+    });
+  });
+
+  lightbox.addEventListener("click", (event) => {
+    if (event.target === lightbox || event.target === closeButton) {
+      closeLightbox();
+    }
+  });
+
+  document.addEventListener("keydown", (event) => {
+    if (event.key === "Escape" && !lightbox.hidden) {
+      closeLightbox();
+    }
+  });
+}
